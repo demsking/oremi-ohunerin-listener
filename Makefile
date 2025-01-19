@@ -66,8 +66,8 @@ certificates: $(SSL_CERT_FILE)
 
 help:
 	# poetry run oremi-ohunerin-mqtt -h
-	docker run -it --rm demsking/oremi-ohunerin-mqtt -h
-	docker run -it --rm demsking/oremi-ohunerin-mqtt listen -h
+	docker run -it --rm demsking/oremi-ohunerin-mqtt:test -h
+	docker run -it --rm demsking/oremi-ohunerin-mqtt:test listen -h
 
 lint:
 	pre-commit run --all-files

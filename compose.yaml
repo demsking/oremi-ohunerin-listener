@@ -10,7 +10,7 @@ services:
   listener:
     tty: true
     build: .
-    image: demsking/oremi-ohunerin-mqtt
+    image: demsking/oremi-ohunerin-mqtt:test
     devices:
       - /dev/snd:/dev/snd # Mount the microphone device
     volumes:
