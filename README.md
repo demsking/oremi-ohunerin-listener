@@ -283,7 +283,7 @@ Send a notification when snoring is detected:
 ```yaml
 automation:
   - alias: "Notify on Snoring"
-    description: Sends a notification when snoring is detected.
+    description: Sends a notification with advice when snoring is detected.
     triggers:
       - trigger: state
         entity_id:
@@ -291,7 +291,12 @@ automation:
     action:
       service: notify.notify
       data:
-        message: "Snoring detected!"
+        title: "Snoring Detected"
+        message: >
+          Snoring detected! Consider elevating your head while sleeping,
+          avoiding alcohol before bed, or trying nasal strips to improve airflow.
+          Consult a healthcare professional if snoring persists.
+    mode: single
 ```
 
 #### 2. Baby Cry Alert
@@ -301,7 +306,7 @@ Send an urgent notification when a baby cry is detected:
 ```yaml
 automation:
   - alias: Notify on Baby Cry
-    description: Sends an urgent notification when a baby cry is detected.
+    description: Sends an urgent notification with soothing tips when a baby cry is detected.
     triggers:
       - trigger: state
         entity_id:
@@ -309,10 +314,38 @@ automation:
     actions:
       - action: notify.notify
         data:
-          message: Baby is crying! Check immediately.
+          title: "Baby Cry Detected"
+          message: >
+            Baby is crying! Check immediately. Try soothing techniques like
+            gentle rocking, singing, or offering a pacifier. Ensure the baby
+            is fed, dry, and comfortable.
+    mode: single
 ```
 
-#### 3. Wake Word Activation
+#### 3. Cough Detection
+
+Send a notification with naturopathic advice when a cough is detected:
+
+```yaml
+automation:
+  - alias: Notify on Cough
+    description: Sends a notification with naturopathic advice when a cough is detected.
+    triggers:
+      - trigger: state
+        entity_id:
+          - sensor.oremi_ohunerin_cough_detector
+    actions:
+      - action: notify.notify
+        data:
+          title: "Cough Detected"
+          message: >
+            Cough detected! Consider drinking warm water with honey and lemon,
+            or try herbal teas like thyme or ginger to soothe your throat.
+            Rest and stay hydrated!
+    mode: single
+```
+
+#### 4. Wake Word Activation
 
 Trigger an automation when the wake word is detected:
 
