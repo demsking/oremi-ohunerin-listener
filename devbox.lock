@@ -658,6 +658,70 @@
         }
       }
     },
+    "python311Packages.twine@latest": {
+      "last_modified": "2024-12-09T13:13:08Z",
+      "resolved": "github:NixOS/nixpkgs/bc27f0fde01ce4e1bfec1ab122d72b7380278e68#python311Packages.twine",
+      "source": "devbox-search",
+      "version": "5.1.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/x282gn3v2v9cpzci97mc663hr721amfs-python3.11-twine-5.1.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/bsd7x1hn5s79z0k8ab1yi3caf61zsjky-python3.11-twine-5.1.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/x282gn3v2v9cpzci97mc663hr721amfs-python3.11-twine-5.1.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/8vj5w4vp0bhc5f0czd1aj59kczi1nvsi-python3.11-twine-5.1.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/lg1cavwbb4xp5f2hic0xap4pi4md6hnf-python3.11-twine-5.1.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/8vj5w4vp0bhc5f0czd1aj59kczi1nvsi-python3.11-twine-5.1.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1bx5naq3hl174clzdn8va9395303a4d7-python3.11-twine-5.1.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/wz0vdcv1j9pczln86210vpyfx454vfni-python3.11-twine-5.1.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/1bx5naq3hl174clzdn8va9395303a4d7-python3.11-twine-5.1.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/37sipgl9l7a73k4r9ns0gp3csrf26adz-python3.11-twine-5.1.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/cms7030cf4b8l57ahrpdakl15hv81gpf-python3.11-twine-5.1.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/37sipgl9l7a73k4r9ns0gp3csrf26adz-python3.11-twine-5.1.1"
+        }
+      }
+    },
     "python@3.11": {
       "last_modified": "2024-12-23T21:10:33Z",
       "plugin_version": "0.0.4",
