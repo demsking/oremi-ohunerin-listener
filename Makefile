@@ -89,7 +89,7 @@ outdated:
 
 update:
 	poetry update
-	nix flake update
+	devbox update
 	pre-commit autoupdate
 
 package:
