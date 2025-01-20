@@ -283,14 +283,15 @@ Send a notification when snoring is detected:
 ```yaml
 automation:
   - alias: "Notify on Snoring"
-    trigger:
-      platform: mqtt
-      topic: "oremi/ohunerin/sound"
-      payload: "snoring"
+    description: Sends a notification when snoring is detected.
+    triggers:
+      - trigger: state
+        entity_id:
+          - sensor.oremi_ohunerin_snoring_detector
     action:
       service: notify.notify
       data:
-        message: "Snoring detected in the bedroom!"
+        message: "Snoring detected!"
 ```
 
 #### 2. Baby Cry Alert
@@ -299,15 +300,16 @@ Send an urgent notification when a baby cry is detected:
 
 ```yaml
 automation:
-  - alias: "Notify on Baby Cry"
-    trigger:
-      platform: mqtt
-      topic: "oremi/ohunerin/sound"
-      payload: "baby-cry-infant-cry"
-    action:
-      service: notify.notify
-      data:
-        message: "Baby is crying! Check immediately."
+  - alias: Notify on Baby Cry
+    description: Sends an urgent notification when a baby cry is detected.
+    triggers:
+      - trigger: state
+        entity_id:
+          - sensor.oremi_ohunerin_baby_cry_infant_cry_detector
+    actions:
+      - action: notify.notify
+        data:
+          message: Baby is crying! Check immediately.
 ```
 
 #### 3. Wake Word Activation
@@ -316,15 +318,19 @@ Trigger an automation when the wake word is detected:
 
 ```yaml
 automation:
-  - alias: "Wake Word Detected"
-    trigger:
-      platform: mqtt
-      topic: "oremi/ohunerin/wakeword"
-      payload: "detected"
-    action:
-      service: script.turn_on
-      target:
-        entity_id: script.start_oremi_assistant
+  - alias: Wake Word Detected
+    description: Triggered when the wake word is detected. Activates the Oremi Assistant script.
+    triggers:
+      - trigger: state
+        entity_id:
+          - sensor.oremi_ohunerin_wake_word
+        to: detected
+    actions:
+      - target:
+          entity_id: script.start_oremi_assistant
+        action: script.turn_on
+        data: {}
+    mode: single
 ```
 
 ### Benefits of This Integration
