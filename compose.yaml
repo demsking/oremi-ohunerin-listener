@@ -2,8 +2,6 @@
 services:
   detector:
     image: demsking/oremi-ohunerin
-    volumes: []
-      # - ~/.cache/tensorflow/models/yamnet.tflite:/var/oremi/models/yamnet.tflite:ro
     ports:
       - 45023:5023
 

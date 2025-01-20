@@ -61,6 +61,10 @@ async def main() -> None:
   args = parse_arguments()
   audio_stream = Audio(device_index=args.device_index)
 
+  # MQTT variables
+  mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+  mqtt_url = f'mqtt://{args.mqtt_broker}:{args.mqtt_port}'
+
   # Dictionary to track the last published sounds and their clearing tasks
   published_sound_sentinel: dict[str, asyncio.Task] = {}
 
@@ -80,15 +84,20 @@ async def main() -> None:
     uri = f'ws://{args.host}:{args.port}'
     ssl_context = None
 
-  mqtt_client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+  def mqtt_connect() -> None:
+    mqtt_client.connect(args.mqtt_broker, args.mqtt_port, keepalive=0)
 
-  mqtt_client.on_connect = lambda client, userdata, flags, reason_code, properties: (
-    logger.info(f'Connected to mqtt://{args.mqtt_broker}:{args.mqtt_port}')
-  )
+  @mqtt_client.connect_callback()
+  def mqtt_on_connect(client, userdata, flags, reason_code, properties) -> None:
+    logger.info(f'Connected to {mqtt_url} with result code {reason_code}')
 
-  mqtt_client.on_disconnect = lambda client, userdata, flags, reason_code, properties: (
-    logger.info(f'Disconnected from mqtt://{args.mqtt_broker}:{args.mqtt_port}')
-  )
+  @mqtt_client.disconnect_callback()
+  def mqtt_on_disconnect(client, userdata, flags, reason_code, properties) -> None:
+    if audio_stream.stream.closed:
+      logger.info(f'Disconnected from {mqtt_url} with result code {reason_code}')
+    else:
+      logger.info(f'Unexpected disconnection from {mqtt_url} with result code {reason_code}. Reconnecting...')
+      mqtt_connect()
 
   def mqtt_publish(topic: DetectedSoundType | str, message: str, retain: bool = False) -> None:
     _topic = f'{args.mqtt_topic}/{topic}'
@@ -116,7 +125,7 @@ async def main() -> None:
   if args.mqtt_username:
     mqtt_client.username_pw_set(username=args.mqtt_username, password=args.mqtt_password)
 
-  mqtt_client.connect(args.mqtt_broker, args.mqtt_port, keepalive=0)
+  mqtt_connect()
   send_clearing_message('wakeword')
   send_clearing_message('sound')
   set_availability(False)

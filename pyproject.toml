@@ -18,7 +18,7 @@ classifiers = [
   "Natural Language :: English",
   "Natural Language :: French",
   "Topic :: Software Development :: Libraries :: Python Modules",
-  "Programming Language :: Python :: 3.11"
+  "Programming Language :: Python :: 3.11",
 ]
 
 include = []
