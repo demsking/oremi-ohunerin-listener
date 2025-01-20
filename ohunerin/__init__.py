@@ -84,7 +84,7 @@ async def main() -> None:
 
   @mqtt_client.client.disconnect_callback()
   def mqtt_on_disconnect(client, userdata, flags, reason_code, properties) -> None:
-    if audio_stream.stream.closed:
+    if audio_stream.is_active():
       logger.info(f'Disconnected from {client} with result code {reason_code}')
     else:
       logger.warning(f'Unexpected disconnection from {client} with result code {reason_code}. Reconnecting...')

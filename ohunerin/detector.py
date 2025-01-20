@@ -89,10 +89,11 @@ class SoundDetector:
     self.published_sound_sentinel[data['sound']] = asyncio.create_task(self.clear_sound_after_delay(data))
 
   def terminate(self) -> None:
-    self.mqtt_client.set_availability(False)
     self.audio_stream.stop()
-    self.mqtt_client.disconnect()
 
     for task in self.published_sound_sentinel.values():
       if task and not task.done():
         task.cancel()
+
+    self.mqtt_client.set_availability(False)
+    self.mqtt_client.disconnect()

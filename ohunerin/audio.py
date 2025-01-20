@@ -74,6 +74,9 @@ class Audio:
       'device': self.stream.device,
     }
 
+  def is_active(self) -> bool:
+    return self.stream.active
+
   @staticmethod
   def find_compatible_device() -> dict | None:
     devices = sd.query_devices()

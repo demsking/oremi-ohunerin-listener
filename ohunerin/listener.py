@@ -29,11 +29,11 @@ class AudioListener:
     self.mqtt_client = mqtt_client
 
   async def listening(self) -> None:
-    logger.info(f"Listening from {self.audio_stream.device_name}...")
     self.mqtt_client.set_availability(True)
+    logger.info(f"Listening from {self.audio_stream.device_name}...")
 
     async with self.audio_stream:
-      while not self.audio_stream.stream.closed:
+      while self.audio_stream.is_active():
         try:
           data = await self.audio_stream.data()
           await self.websocket.send(data)
@@ -48,4 +48,4 @@ class AudioListener:
           await self.websocket.close()
           break
 
-    logger.info('Stream closed')
+    logger.info('Audio stream closed')
