@@ -66,10 +66,17 @@ async def main() -> None:
   # Log initial configuration
   logger.info(f"Starting {APP_NAME}/{APP_VERSION}")
   logger.info(f"Log level: {LOG_LEVEL_STR}")
-  logger.info(f"Threshold: {args.threshold}")
-  logger.info(f"Delay: {args.delay}s")
+  logger.info(f"Configuration Threshold: {args.threshold}")
+  logger.info(f"Configuration Delay: {args.delay}s")
+  logger.info(f"Configuration MQTT Topic: #{args.mqtt_topic}s")
 
-  mqtt_client = MQTTClient(args.mqtt_broker, args.mqtt_port, username=args.mqtt_username, password=args.mqtt_password)
+  mqtt_client = MQTTClient(
+    broker=args.mqtt_broker,
+    port=args.mqtt_port,
+    topic=args.mqtt_topic,
+    username=args.mqtt_username,
+    password=args.mqtt_password,
+  )
 
   @mqtt_client.client.connect_callback()
   def mqtt_on_connect(client, userdata, flags, reason_code, properties) -> None:

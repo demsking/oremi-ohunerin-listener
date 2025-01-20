@@ -26,12 +26,14 @@ class MQTTClient:
     broker: str,
     port: int,
     *,
+    topic: str,
     username: str | None = None,
     password: str | None = None,
   ):
     self.client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     self.broker = broker
     self.port = port
+    self.topic = topic
     self.username = username
     self.password = password
 
@@ -41,8 +43,8 @@ class MQTTClient:
     self.client.connect(self.broker, self.port, keepalive=0)
 
   def publish(self, topic: DetectedSoundType | str, message: str, retain: bool = False) -> None:
-    logger.debug(f"Publishing #{topic}: {message} with retain {retain}")
-    self.client.publish(topic, message, retain=retain)
+    logger.debug(f"Publishing #{self.topic}/{topic}: {message} with retain {retain}")
+    self.client.publish(f'{self.topic}/{topic}', message, retain=retain)
 
   def set_availability(self, available: bool) -> None:
     message: Literal['online', 'offline'] = 'online' if available else 'offline'
