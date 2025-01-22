@@ -9,7 +9,7 @@ shell:
 	tmuxinator
 
 stop:
-	tmux kill-session -t oremi-ohunerin-mqtt
+	tmux kill-session -t oremi-ohunerin-listener
 
 up: certificates
 	docker compose up -d --remove-orphans detector
@@ -65,9 +65,9 @@ $(SSL_CERT_FILE):
 certificates: $(SSL_CERT_FILE)
 
 help:
-	# poetry run oremi-ohunerin-mqtt -h
-	docker run -it --rm demsking/oremi-ohunerin-mqtt:test -h
-	docker run -it --rm demsking/oremi-ohunerin-mqtt:test listen -h
+	# poetry run oremi-ohunerin-listener -h
+	docker run -it --rm demsking/oremi-ohunerin-listener:test -h
+	docker run -it --rm demsking/oremi-ohunerin-listener:test listen -h
 
 lint:
 	pre-commit run --all-files

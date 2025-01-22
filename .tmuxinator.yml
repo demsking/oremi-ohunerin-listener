@@ -1,8 +1,8 @@
-name: oremi-ohunerin-mqtt
+name: oremi-ohunerin-listener
 root: .
 
 # Optional tmux socket
-socket_name: oremi-ohunerin-mqtt
+socket_name: oremi-ohunerin-listener
 
 # Note that the pre and post options have been deprecated and will be replaced by
 # project hooks.
@@ -13,7 +13,7 @@ socket_name: oremi-ohunerin-mqtt
 on_project_start: make up
 
 # Run on project start, the first time
-# on_project_first_start: docker compose build
+on_project_first_start: make install
 
 # Run on project start, after the first time
 # on_project_restart: command

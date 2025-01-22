@@ -1,8 +1,8 @@
-# Contributing to Oremi Ohunerin MQTT
+# Contributing to Oremi Ohunerin Listener
 
 ## Before Submitting an Issue
 
-Check that [our issue database](https://gitlab.com/demsking/oremi-ohunerin-mqtt/issues)
+Check that [our issue database](https://gitlab.com/demsking/oremi-ohunerin-listener/issues)
 doesn't already include that problem or suggestion before submitting an issue.
 If you find a match, you can use the "subscribe" button to get notified on
 updates. Do *not* leave random "+1" or "I have this too" comments, as they
@@ -78,14 +78,14 @@ Please see the [Makefile](Makefile) for the full list of targets.
 
 ## Contribute
 
-Contributions to Oremi Ohunerin MQTT are welcome. Here is how you can
+Contributions to Oremi Ohunerin Listener are welcome. Here is how you can
 contribute:
 
-1. [Submit bugs or a feature request](https://gitlab.com/demsking/oremi-ohunerin-mqtt/issues)
+1. [Submit bugs or a feature request](https://gitlab.com/demsking/oremi-ohunerin-listener/issues)
    and help us verify fixes as they are checked in
 2. Create your working branch from the `dev` branch:
    `git checkout dev -b feature/my-awesome-feature`
 3. Write code for a bug fix or for your new awesome feature
 4. Write test cases for your changes
-5. [Submit merge requests](https://gitlab.com/demsking/oremi-ohunerin-mqtt/merge_requests)
+5. [Submit merge requests](https://gitlab.com/demsking/oremi-ohunerin-listener/merge_requests)
    for bug fixes and features and discuss existing proposals

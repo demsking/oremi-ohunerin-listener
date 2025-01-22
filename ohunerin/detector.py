@@ -45,12 +45,9 @@ class SoundDetector:
 
   async def clear_sound_after_delay(self, data: DetectedSound) -> None:
     await asyncio.sleep(self.delay)
+
     if data['sound'] in self.published_sound_sentinel:
       del self.published_sound_sentinel[data['sound']]
-    if data['type'] == 'wakeword':
-      self.send_clearing_message('wakeword')
-    elif not self.published_sound_sentinel:
-      self.send_clearing_message('sound')
 
   def send_clearing_message(self, type: DetectedSoundType) -> None:
     data: DetectedSound = {
@@ -90,10 +87,5 @@ class SoundDetector:
 
   def terminate(self) -> None:
     self.audio_stream.stop()
-
-    for task in self.published_sound_sentinel.values():
-      if task and not task.done():
-        task.cancel()
-
     self.mqtt_client.set_availability(False)
     self.mqtt_client.disconnect()

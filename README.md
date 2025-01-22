@@ -1,8 +1,8 @@
-# Oremi Ohunerin MQTT
+# Oremi Ohunerin Listener
 
 [![Buy me a beer](https://img.shields.io/badge/Buy%20me-a%20beer-1f425f.svg)](https://www.buymeacoffee.com/demsking)
 
-Oremi Ohunerin MQTT is an MQTT implementation of **[Oremi Ohunerin](https://gitlab.com/demsking/oremi-ohunerin)**,
+Oremi Ohunerin Listener is an implementation of **[Oremi Ohunerin](https://gitlab.com/demsking/oremi-ohunerin)**,
 the real-time audio detection component of the **Oremi Personal Assistant**
 project. It connects to the Oremi Ohunerin WebSocket server, detects
 environmental sounds and wake words, and publishes the results to an MQTT
@@ -34,9 +34,9 @@ It can recognize various sound categories, including but not limited to:
 - Coughing
 - And more.
 
-### What is Oremi Ohunerin MQTT?
+### What is Oremi Ohunerin Listener?
 
-Oremi Ohunerin MQTT bridges the gap between Oremi Ohunerin and MQTT-based
+Oremi Ohunerin Listener bridges the gap between Oremi Ohunerin and MQTT-based
 systems. It:
 
 1. Connects to the Oremi Ohunerin WebSocket server.
@@ -75,7 +75,7 @@ automation and monitoring.
 
 ### Docker Compose Example
 
-Here’s a quick example of how to use Oremi Ohunerin MQTT with Docker Compose:
+Here’s a quick example of how to use Oremi Ohunerin Listener with Docker Compose:
 
 ```yaml
 services:
@@ -83,7 +83,7 @@ services:
     image: demsking/oremi-ohunerin
 
   listener:
-    image: demsking/oremi-ohunerin-mqtt
+    image: demsking/oremi-ohunerin-listener
     devices:
       - /dev/snd:/dev/snd # Mount the microphone device
     volumes:
@@ -97,7 +97,7 @@ services:
 ### Explanation
 
 - **`detector`**: The Oremi Ohunerin WebSocket server.
-- **`listener`**: The Oremi Ohunerin MQTT client.
+- **`listener`**: The Oremi Ohunerin Listener client.
   - Mounts the microphone device for audio input.
   - Connects to the MQTT broker at `mqtt.eclipseprojects.io:1883`.
   - Publishes detected sounds and wake words to the MQTT topic `oremi/ohunerin`.
@@ -109,13 +109,13 @@ services:
 To see the general usage and available commands, run:
 
 ```bash
-docker run -it --rm demsking/oremi-ohunerin-mqtt -h
+docker run -it --rm demsking/oremi-ohunerin-listener -h
 ```
 
 Output:
 
 ```
-usage: oremi-ohunerin-mqtt [-h] [-v] {listen} ...
+usage: oremi-ohunerin-listener [-h] [-v] {listen} ...
 
 Real-time ambient sound and wake word detection
 
@@ -134,13 +134,13 @@ options:
 To see the options for the `listen` command, run:
 
 ```bash
-docker run -it --rm demsking/oremi-ohunerin-mqtt listen -h
+docker run -it --rm demsking/oremi-ohunerin-listener listen -h
 ```
 
 Output:
 
 ```
-usage: oremi-ohunerin-mqtt listen [-h] [-l LANGUAGE] [-i DEVICE_INDEX] [-d DEVICE] [-t THRESHOLD] [--delay DELAY] [--host HOST]
+usage: oremi-ohunerin-listener listen [-h] [-l LANGUAGE] [-i DEVICE_INDEX] [-d DEVICE] [-t THRESHOLD] [--delay DELAY] [--host HOST]
                                   [-p PORT] [--cert-file CERT_FILE] --mqtt-broker MQTT_BROKER [--mqtt-port MQTT_PORT]
                                   [--mqtt-username MQTT_USERNAME] [--mqtt-password MQTT_PASSWORD] [--mqtt-topic MQTT_TOPIC]
 
@@ -173,7 +173,7 @@ options:
 
 ## MQTT Topics
 
-Oremi Ohunerin MQTT publishes detected sounds and wake words to the following MQTT topics:
+Oremi Ohunerin Listener publishes detected sounds and wake words to the following MQTT topics:
 
 - **`oremi/ohunerin/sound`**: For environmental sound detection events.
 - **`oremi/ohunerin/wakeword`**: For wake word detection events.
@@ -192,7 +192,7 @@ Each message is published as a JSON object with the following structure:
 
 ## Home Assistant Integration
 
-Oremi Ohunerin MQTT is an excellent tool for integrating real-time audio
+Oremi Ohunerin Listener is an excellent tool for integrating real-time audio
 detection into **Home Assistant**. By publishing detected sounds and wake words
 to MQTT topics, you can create automations, notifications, and dashboards in
 Home Assistant based on audio events.
@@ -204,7 +204,7 @@ Imagine you want to:
 2. Trigger a notification if a baby is crying.
 3. Activate a wake word to start a specific automation.
 
-With Oremi Ohunerin MQTT and Home Assistant, you can achieve this seamlessly.
+With Oremi Ohunerin Listener and Home Assistant, you can achieve this seamlessly.
 
 ### Home Assistant Configuration
 
@@ -375,12 +375,12 @@ automation:
 - **Customizable**: Easily adapt to your specific needs by modifying the
   configuration.
 
-This integration makes Oremi Ohunerin MQTT a powerful tool for enhancing your
+This integration makes Oremi Ohunerin Listener a powerful tool for enhancing your
 smart home with advanced audio detection capabilities.
 
 ## Contribute
 
-Please follow [CONTRIBUTING.md](https://gitlab.com/demsking/oremi-ohunerin-mqtt/blob/main/CONTRIBUTING.md).
+Please follow [CONTRIBUTING.md](https://gitlab.com/demsking/oremi-ohunerin-listener/blob/main/CONTRIBUTING.md).
 
 ## Versioning
 
@@ -400,4 +400,4 @@ See [SemVer.org](https://semver.org/) for more details.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this file except in compliance with the License.
-You may obtain a copy of the License at [LICENSE](https://gitlab.com/demsking/oremi-ohunerin-mqtt/blob/main/LICENSE).
+You may obtain a copy of the License at [LICENSE](https://gitlab.com/demsking/oremi-ohunerin-listener/blob/main/LICENSE).

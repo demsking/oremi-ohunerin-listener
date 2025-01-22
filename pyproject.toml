@@ -3,15 +3,15 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "oremi-ohunerin-mqtt"
+name = "oremi-ohunerin-listener"
 version = "1.0.4"
-description = "Oremi Ohunerin MQTT bridges Oremi Ohunerin's real-time audio detection with MQTT, enabling seamless integration into home automation systems like Home Assistant"
+description = "Oremi Ohunerin Listener bridges Oremi Ohunerin's real-time audio detection with MQTT, enabling seamless integration into home automation systems like Home Assistant"
 keywords = ["sound", "detection", "wakeword", "mqtt"]
 authors = ["Sébastien Demanou <demsking@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
-repository = "https://gitlab.com/demsking/oremi-ohunerin-mqtt"
-documentation = "https://gitlab.com/demsking/oremi-ohunerin-mqtt/-/blob/main/README.md"
+repository = "https://gitlab.com/demsking/oremi-ohunerin-listener"
+documentation = "https://gitlab.com/demsking/oremi-ohunerin-listener/-/blob/main/README.md"
 classifiers = [
   "Environment :: Console",
   "Intended Audience :: Developers",
@@ -29,12 +29,12 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-oremi-ohunerin-mqtt = 'ohunerin:main'
+oremi-ohunerin-listener = 'ohunerin:main'
 
 [tool.poetry.urls]
 "Say Thanks!" = "https://www.buymeacoffee.com/demsking"
-"Source" = "https://gitlab.com/demsking/oremi-ohunerin-mqtt"
-"Tracker" = "https://gitlab.com/demsking/oremi-ohunerin-mqtt/-/issues"
+"Source" = "https://gitlab.com/demsking/oremi-ohunerin-listener"
+"Tracker" = "https://gitlab.com/demsking/oremi-ohunerin-listener/-/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
