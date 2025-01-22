@@ -18,7 +18,10 @@
     "python311Packages.pyroma@latest",
     "python311Packages.pytest@latest",
     "python311Packages.twine@latest",
-    "rubyPackages.erubi@latest"
+    "rubyPackages.erubi@latest",
+    "portaudio@latest",
+    "libgcc@latest",
+    "yamllint@latest"
   ],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "true",

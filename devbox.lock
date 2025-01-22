@@ -193,6 +193,78 @@
         }
       }
     },
+    "libgcc@latest": {
+      "last_modified": "2025-01-17T10:46:57Z",
+      "resolved": "github:NixOS/nixpkgs/041c867bad68dfe34b78b2813028a2e2ea70a23c#libgcc",
+      "source": "devbox-search",
+      "version": "14-20241116",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "libgcc",
+              "path": "/nix/store/g0fg0qk212665jy2bmhrqvi7cqfzz90q-gcc-14-20241116-libgcc",
+              "default": true
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/qbvp2h1f5a03nwmw0nwqimnk4kjhzv19-gcc-14-20241116",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/bl35c3073sg260lnp5k36bkjk6p6g3gs-gcc-14-20241116-man",
+              "default": true
+            },
+            {
+              "name": "lib",
+              "path": "/nix/store/k7zrgs3l3ifa9qpz8i3ndaa0xvsmcb9n-gcc-14-20241116-lib"
+            },
+            {
+              "name": "checksum",
+              "path": "/nix/store/l7wzh1jhiqa2vhaw8dpxj4rircpfhvxi-gcc-14-20241116-checksum"
+            },
+            {
+              "name": "info",
+              "path": "/nix/store/s2lnnmhrswf5zmxi8662z08hc260m8ps-gcc-14-20241116-info"
+            }
+          ],
+          "store_path": "/nix/store/g0fg0qk212665jy2bmhrqvi7cqfzz90q-gcc-14-20241116-libgcc"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "libgcc",
+              "path": "/nix/store/17v0ywnr3akp85pvdi56gwl99ljv95kx-gcc-14-20241116-libgcc",
+              "default": true
+            },
+            {
+              "name": "out",
+              "path": "/nix/store/l89iqc7am6i60y8vk507zwrzxf0wcd3v-gcc-14-20241116",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/5kr602ywkyfpvzx6sl4d3zkksp4iakhb-gcc-14-20241116-man",
+              "default": true
+            },
+            {
+              "name": "lib",
+              "path": "/nix/store/bpq1s72cw9qb2fs8mnmlw6hn2c7iy0ss-gcc-14-20241116-lib"
+            },
+            {
+              "name": "checksum",
+              "path": "/nix/store/h60zrhfdw173cffn5iyb52f64sn40jyc-gcc-14-20241116-checksum"
+            },
+            {
+              "name": "info",
+              "path": "/nix/store/bmb9bqw7fxac08wc46cizd7dzlw64860-gcc-14-20241116-info"
+            }
+          ],
+          "store_path": "/nix/store/17v0ywnr3akp85pvdi56gwl99ljv95kx-gcc-14-20241116-libgcc"
+        }
+      }
+    },
     "poetry@latest": {
       "last_modified": "2025-01-14T01:21:38Z",
       "plugin_version": "0.0.4",
@@ -255,6 +327,54 @@
             }
           ],
           "store_path": "/nix/store/kkvsbp087fq00gb1z9lvbjjd7c7zdy9d-python3.12-poetry-2.0.0"
+        }
+      }
+    },
+    "portaudio@latest": {
+      "last_modified": "2024-12-23T21:10:33Z",
+      "resolved": "github:NixOS/nixpkgs/de1864217bfa9b5845f465e771e0ecb48b30e02d#portaudio",
+      "source": "devbox-search",
+      "version": "190700_20210406",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/54s7q9cx1496r2gk69mcl08krqn47xw8-portaudio-190700_20210406",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/54s7q9cx1496r2gk69mcl08krqn47xw8-portaudio-190700_20210406"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/qmfv73hwxigr4cv1xwfs30vzd9sldhwx-portaudio-190700_20210406",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/qmfv73hwxigr4cv1xwfs30vzd9sldhwx-portaudio-190700_20210406"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0kh6d521lhz9669kjsprvqssla5l0r50-portaudio-190700_20210406",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0kh6d521lhz9669kjsprvqssla5l0r50-portaudio-190700_20210406"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vdlihdxwxxfy8dy92wp39mils2z44llx-portaudio-190700_20210406",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/vdlihdxwxxfy8dy92wp39mils2z44llx-portaudio-190700_20210406"
         }
       }
     },
@@ -1156,6 +1276,70 @@
             }
           ],
           "store_path": "/nix/store/0b168gv14kb449qag8x1psmqhkl7pgx1-tmuxinator-3.3.3"
+        }
+      }
+    },
+    "yamllint@latest": {
+      "last_modified": "2024-12-23T21:10:33Z",
+      "resolved": "github:NixOS/nixpkgs/de1864217bfa9b5845f465e771e0ecb48b30e02d#yamllint",
+      "source": "devbox-search",
+      "version": "1.35.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/f119sg47lh576bj7s83rmfdphwjxykkq-python3.12-yamllint-1.35.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/0h54cmwyz2d6axldh6894dj8hwavyarc-python3.12-yamllint-1.35.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/f119sg47lh576bj7s83rmfdphwjxykkq-python3.12-yamllint-1.35.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3zgl49ap4wlg6h9g5r9m8lhwys8v566q-python3.12-yamllint-1.35.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/3kiidcnnizy76d8hly4nmwjwig597wwk-python3.12-yamllint-1.35.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/3zgl49ap4wlg6h9g5r9m8lhwys8v566q-python3.12-yamllint-1.35.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/jx6wrsl5scdggdq9j79vdr4pygirp7c3-python3.12-yamllint-1.35.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/xf8h6cs767i3yw417sivr8sy27jpszrl-python3.12-yamllint-1.35.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/jx6wrsl5scdggdq9j79vdr4pygirp7c3-python3.12-yamllint-1.35.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/67dhdiaxkryhr9bwyg7lfpmljcghvjwb-python3.12-yamllint-1.35.1",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/jrcv8wi52hb9rv84c01hayvjz2kfiwpf-python3.12-yamllint-1.35.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/67dhdiaxkryhr9bwyg7lfpmljcghvjwb-python3.12-yamllint-1.35.1"
         }
       }
     }
