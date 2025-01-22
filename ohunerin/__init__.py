@@ -93,9 +93,11 @@ async def main() -> None:
   mqtt_client.connect()
   mqtt_client.set_availability(False)
 
-  ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT) if args.cert_file else None
   if args.cert_file:
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
     ssl_context.load_verify_locations(args.cert_file)
+  else:
+    ssl_context = None
 
   uri = f"wss://{args.host}:{args.port}" if args.cert_file else f"ws://{args.host}:{args.port}"
 
