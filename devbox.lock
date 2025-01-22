@@ -50,8 +50,8 @@
       }
     },
     "gnumake@latest": {
-      "last_modified": "2025-01-15T12:23:19Z",
-      "resolved": "github:NixOS/nixpkgs/ae2fb9f1fb5fcf17fb59f25c2a881c170c501d6f#gnumake",
+      "last_modified": "2024-12-28T05:01:57Z",
+      "resolved": "github:NixOS/nixpkgs/9e09ce2d47c7700b877becef99ce7e27f15604dc#gnumake",
       "source": "devbox-search",
       "version": "4.4.1",
       "systems": {
@@ -87,12 +87,12 @@
               "default": true
             },
             {
-              "name": "debug",
-              "path": "/nix/store/gfsbcjrv2lxgipzsn3a65flqll44ihis-gnumake-4.4.1-debug"
-            },
-            {
               "name": "info",
               "path": "/nix/store/hnkqb83x19qv9hwa8l5vkvv2y21yps32-gnumake-4.4.1-info"
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/gfsbcjrv2lxgipzsn3a65flqll44ihis-gnumake-4.4.1-debug"
             }
           ],
           "store_path": "/nix/store/vdn3rar5zcrg0mh406h4abq3w2d12hy2-gnumake-4.4.1"
@@ -282,29 +282,29 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/px59mqpv8zdi65qd4a2mmbik0b0j5zac-pre-commit-4.0.1",
+              "path": "/nix/store/ajy3kf03maa564l2l0jqvgs7plw0dma9-pre-commit-4.0.1",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/g9gaqwbn78yim5qsqv5vr0h6yyz1awic-pre-commit-4.0.1-dist"
+              "path": "/nix/store/fzc8p64gaidhmvn0v11ky5h01jkhc5my-pre-commit-4.0.1-dist"
             }
           ],
-          "store_path": "/nix/store/px59mqpv8zdi65qd4a2mmbik0b0j5zac-pre-commit-4.0.1"
+          "store_path": "/nix/store/ajy3kf03maa564l2l0jqvgs7plw0dma9-pre-commit-4.0.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/har8s49cv0jdikfzx5h5difq2nn3x07i-pre-commit-4.0.1",
+              "path": "/nix/store/9if5395ypzra8wv10qywyx74aq4abk2n-pre-commit-4.0.1",
               "default": true
             },
             {
               "name": "dist",
-              "path": "/nix/store/h0s97yi6jz4lfa8sp25hjdnzgvp15k5w-pre-commit-4.0.1-dist"
+              "path": "/nix/store/ixc8jnpf445cvf799hn6nhm9iracksn5-pre-commit-4.0.1-dist"
             }
           ],
-          "store_path": "/nix/store/har8s49cv0jdikfzx5h5difq2nn3x07i-pre-commit-4.0.1"
+          "store_path": "/nix/store/9if5395ypzra8wv10qywyx74aq4abk2n-pre-commit-4.0.1"
         },
         "x86_64-linux": {
           "outputs": [
@@ -515,8 +515,8 @@
       }
     },
     "python311Packages.pytest@latest": {
-      "last_modified": "2024-12-17T11:43:56Z",
-      "resolved": "github:NixOS/nixpkgs/4989a246d7a390a859852baddb1013f825435cee#python311Packages.pytest",
+      "last_modified": "2024-12-21T22:31:51Z",
+      "resolved": "github:NixOS/nixpkgs/7e4a1594489d41bf8e16046b28e14a0e264c9baa#python311Packages.pytest",
       "source": "devbox-search",
       "version": "8.3.3",
       "systems": {
@@ -546,12 +546,12 @@
               "default": true
             },
             {
-              "name": "dist",
-              "path": "/nix/store/6kxca3l6r7g2w19hb8w57anpbr276r3k-python3.11-pytest-8.3.3-dist"
-            },
-            {
               "name": "testout",
               "path": "/nix/store/wm6wgk98x0sin2abkxniakrjzl2c93p8-python3.11-pytest-8.3.3-testout"
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/6kxca3l6r7g2w19hb8w57anpbr276r3k-python3.11-pytest-8.3.3-dist"
             }
           ],
           "store_path": "/nix/store/hnrww9wkx2jak3l1ibgq30s2kzwfmd5h-python3.11-pytest-8.3.3"
@@ -828,50 +828,50 @@
       }
     },
     "ruff@latest": {
-      "last_modified": "2025-01-11T15:21:40Z",
-      "resolved": "github:NixOS/nixpkgs/590cc22eefd616c8f90608870d28afe25d37e8b8#ruff",
+      "last_modified": "2025-01-17T10:46:57Z",
+      "resolved": "github:NixOS/nixpkgs/041c867bad68dfe34b78b2813028a2e2ea70a23c#ruff",
       "source": "devbox-search",
-      "version": "0.9.1",
+      "version": "0.9.2",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/c1qk1csky41sispkmmzr8yjdkh63vsh7-ruff-0.9.1",
+              "path": "/nix/store/rsac9gg6f44zaq7hj9ffmp9bl1wx092p-ruff-0.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/c1qk1csky41sispkmmzr8yjdkh63vsh7-ruff-0.9.1"
+          "store_path": "/nix/store/rsac9gg6f44zaq7hj9ffmp9bl1wx092p-ruff-0.9.2"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/kjc1yib5clhxmxv2q91fcxp8wl9dpgdr-ruff-0.9.1",
+              "path": "/nix/store/njvrbqqyvdg6dpi6ckdji9fnzw4gz0ls-ruff-0.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/kjc1yib5clhxmxv2q91fcxp8wl9dpgdr-ruff-0.9.1"
+          "store_path": "/nix/store/njvrbqqyvdg6dpi6ckdji9fnzw4gz0ls-ruff-0.9.2"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/32h81mlxph9in37jfbdkdiasmdsfsfgf-ruff-0.9.1",
+              "path": "/nix/store/pb20mjnqrgnjrl30sr0gn3hzjglq5ri9-ruff-0.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/32h81mlxph9in37jfbdkdiasmdsfsfgf-ruff-0.9.1"
+          "store_path": "/nix/store/pb20mjnqrgnjrl30sr0gn3hzjglq5ri9-ruff-0.9.2"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/sjw691v6hj3l3662vxf490js0czyq8f4-ruff-0.9.1",
+              "path": "/nix/store/hbsacm4azgal75ilgkkibz6a0gvhp9qy-ruff-0.9.2",
               "default": true
             }
           ],
-          "store_path": "/nix/store/sjw691v6hj3l3662vxf490js0czyq8f4-ruff-0.9.1"
+          "store_path": "/nix/store/hbsacm4azgal75ilgkkibz6a0gvhp9qy-ruff-0.9.2"
         }
       }
     },
