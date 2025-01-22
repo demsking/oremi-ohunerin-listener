@@ -21,7 +21,8 @@
     "rubyPackages.erubi@latest",
     "portaudio@latest",
     "libgcc@latest",
-    "yamllint@latest"
+    "yamllint@latest",
+    "nodejs@latest"
   ],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "true",
@@ -33,6 +34,7 @@
   "shell": {
     "init_hook": [
       "poetry shell",
+      "npm install -g gimtoc",
       "pre-commit install -f"
     ],
     "scripts": {}

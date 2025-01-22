@@ -13,6 +13,34 @@ like **Home Assistant**, IoT platforms, or any application that uses MQTT for
 communication. It is available as a Docker image for both `linux/amd64` and
 `linux/arm64` architectures.
 
+## Table of Contents
+
+- [Overview](#overview)
+  * [What is Oremi Ohunerin?](#what-is-oremi-ohunerin)
+  * [What is Oremi Ohunerin Listener?](#what-is-oremi-ohunerin-listener)
+- [Features](#features)
+- [Quick Start](#quick-start)
+  * [Prerequisites](#prerequisites)
+  * [Docker Compose Example](#docker-compose-example)
+  * [Explanation](#explanation)
+- [Command-Line Arguments](#command-line-arguments)
+  * [General Usage](#general-usage)
+  * [Listen Command](#listen-command)
+- [MQTT Topics](#mqtt-topics)
+- [Home Assistant Integration](#home-assistant-integration)
+  * [Example Use Case](#example-use-case)
+  * [Home Assistant Configuration](#home-assistant-configuration)
+    + [`configuration.yaml`](#configurationyaml)
+  * [Example Automations](#example-automations)
+    + [1. Snoring Detection](#1-snoring-detection)
+    + [2. Baby Cry Alert](#2-baby-cry-alert)
+    + [3. Cough Detection](#3-cough-detection)
+    + [4. Wake Word Activation](#4-wake-word-activation)
+  * [Benefits of This Integration](#benefits-of-this-integration)
+- [Contribute](#contribute)
+- [Versioning](#versioning)
+- [License](#license)
+
 ## Overview
 
 ### What is Oremi Ohunerin?
@@ -27,6 +55,7 @@ technologies such as:
 - **PocketSphinx**: For precise wake word identification.
 
 It can recognize various sound categories, including but not limited to:
+
 - Shouts
 - Laughter
 - Crying
@@ -89,8 +118,8 @@ services:
     volumes:
       - $XDG_RUNTIME_DIR/pulse/native:/var/config/pulse/native
       - ~/.config/pulse/cookie:/var/config/pulse/cookie
-    env_file:
-      - .env
+    environment:
+      LOG_LEVEL: info
     command: listen --host detector --mqtt-broker mqtt.eclipseprojects.io --mqtt-port 1883
 ```
 
@@ -200,6 +229,7 @@ Home Assistant based on audio events.
 ### Example Use Case
 
 Imagine you want to:
+
 1. Detect when someone is snoring in a room.
 2. Trigger a notification if a baby is crying.
 3. Activate a wake word to start a specific automation.

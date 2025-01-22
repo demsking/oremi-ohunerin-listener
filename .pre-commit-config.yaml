@@ -76,6 +76,18 @@ repos:
         entry: hadolint
         language: system
         files: Dockerfile
+      - id: gimtoc
+        name: 'Generate Table of Contents'
+        description: 'Runs `gimtoc` to generate a Table of Contents in README.md.'
+        entry: npx
+        language: node
+        files: README.md
+        args: [
+          'gimtoc',
+            '--file', 'README.md',
+            '--section', 'Table of Contents',
+            '--output', 'README.md',
+        ]
       - id: autopep8
         name: 'Fix Python Code Style using AutoPEP8'
         description: 'Runs `autopep8` to format Python code according to PEP 8 standards.'
