@@ -114,7 +114,7 @@ docker run -it --rm demsking/oremi-ohunerin-listener -h
 
 Output:
 
-```
+```bash
 usage: oremi-ohunerin-listener [-h] [-v] {listen} ...
 
 Real-time ambient sound and wake word detection
@@ -139,7 +139,7 @@ docker run -it --rm demsking/oremi-ohunerin-listener listen -h
 
 Output:
 
-```
+```bash
 usage: oremi-ohunerin-listener listen [-h] [-l LANGUAGE] [-i DEVICE_INDEX] [-d DEVICE] [-t THRESHOLD] [--delay DELAY] [--host HOST]
                                   [-p PORT] [--cert-file CERT_FILE] --mqtt-broker MQTT_BROKER [--mqtt-port MQTT_PORT]
                                   [--mqtt-username MQTT_USERNAME] [--mqtt-password MQTT_PASSWORD] [--mqtt-topic MQTT_TOPIC]
