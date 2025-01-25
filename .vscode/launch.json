@@ -2,15 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug",
+      "name": "Debug Listener",
       "type": "debugpy",
       "request": "launch",
       "module": "ohunerin",
       "args": [
-        "--host", "localhost",
-        "--port", "45023",
-        "--mqtt-broker", "192.168.1.93",
-        "--mqtt-port", "11883"
+        "listen",
+        "--host",
+        "detector",
+        "--port",
+        "5023",
+        "--mqtt-broker",
+        "mosquitto",
+        "--mqtt-port",
+        "1883",
+        "--threshold",
+        "0.1"
       ],
       "cwd": "${workspaceFolder}",
       "justMyCode": true

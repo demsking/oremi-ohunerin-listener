@@ -1,0 +1,12 @@
+---
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    devices:
+      - /dev/snd:/dev/snd # Mount the microphone device
+    volumes:
+      - .:/workspaces:cached
+    command: sleep infinity
+...

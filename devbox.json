@@ -19,7 +19,6 @@
     "python311Packages.pytest@latest",
     "python311Packages.twine@latest",
     "rubyPackages.erubi@latest",
-    "portaudio@latest",
     "libgcc@latest",
     "yamllint@latest",
     "nodejs@latest"
@@ -33,8 +32,6 @@
   },
   "shell": {
     "init_hook": [
-      "poetry shell",
-      "npm install -g gimtoc",
       "pre-commit install -f"
     ],
     "scripts": {}

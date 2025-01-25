@@ -17,33 +17,7 @@
     "**/__pycache__": true,
     "**/dist": true
   },
-  "python.analysis.typeCheckingMode": "basic",
-  "python.analysis.diagnosticSeverityOverrides": {
-    "reportMissingTypeStubs": "information",
-    "reportPrivateImportUsage": "none"
-  },
-  "python.analysis.exclude": [
-    "venv/**"
-  ],
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.completeFunctionParens": true,
-  "python.analysis.diagnosticMode": "workspace",
-  "python.analysis.importFormat": "relative",
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.pytestParameters": true,
-  "python.analysis.inlayHints.variableTypes": true,
-  "python.analysis.fixAll": ["source.convertImportFormat"],
   "python.testing.pytestEnabled": true,
-  "python.linting.pylintArgs": [],
-  "python.linting.ignorePatterns": [
-    "**/site-packages/**/*.py",
-    ".vscode/*.py",
-    ".*_test.py",
-    "typings/**/*.py"
-  ],
-  "python.testing.pytestArgs": [
-    "tests"
-  ],
-  "python.testing.unittestEnabled": false,
-  "makefile.configureOnOpen": false
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.unittestEnabled": false
 }

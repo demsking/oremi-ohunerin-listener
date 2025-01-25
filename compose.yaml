@@ -7,8 +7,13 @@ services:
 
   listener:
     tty: true
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     image: demsking/oremi-ohunerin-listener:test
+    depends_on:
+      - detector
+      - mosquitto
     devices:
       - /dev/snd:/dev/snd # Mount the microphone device
     volumes:
@@ -17,7 +22,7 @@ services:
     env_file:
       - .env
     # command: --list-devices
-    command: listen --host detector --mqtt-broker 192.168.1.93 --mqtt-port 11883
+    command: listen --host detector --mqtt-broker mosquitto --mqtt-port 1883 --threshold 0.1
     develop:
       watch:
         - action: rebuild
@@ -35,3 +40,10 @@ services:
         - action: sync+restart
           path: scripts/pulse-client.conf
           target: /etc/pulse/client.conf
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    ports:
+      - 41883:1883
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf

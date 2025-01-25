@@ -395,54 +395,6 @@
         }
       }
     },
-    "portaudio@latest": {
-      "last_modified": "2024-12-23T21:10:33Z",
-      "resolved": "github:NixOS/nixpkgs/de1864217bfa9b5845f465e771e0ecb48b30e02d#portaudio",
-      "source": "devbox-search",
-      "version": "190700_20210406",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/54s7q9cx1496r2gk69mcl08krqn47xw8-portaudio-190700_20210406",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/54s7q9cx1496r2gk69mcl08krqn47xw8-portaudio-190700_20210406"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/qmfv73hwxigr4cv1xwfs30vzd9sldhwx-portaudio-190700_20210406",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/qmfv73hwxigr4cv1xwfs30vzd9sldhwx-portaudio-190700_20210406"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/0kh6d521lhz9669kjsprvqssla5l0r50-portaudio-190700_20210406",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/0kh6d521lhz9669kjsprvqssla5l0r50-portaudio-190700_20210406"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/vdlihdxwxxfy8dy92wp39mils2z44llx-portaudio-190700_20210406",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/vdlihdxwxxfy8dy92wp39mils2z44llx-portaudio-190700_20210406"
-        }
-      }
-    },
     "pre-commit@latest": {
       "last_modified": "2025-01-11T15:21:40Z",
       "resolved": "github:NixOS/nixpkgs/590cc22eefd616c8f90608870d28afe25d37e8b8#pre-commit",
