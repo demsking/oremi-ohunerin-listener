@@ -18,22 +18,12 @@
     "python311Packages.pyroma@latest",
     "python311Packages.pytest@latest",
     "python311Packages.twine@latest",
-    "rubyPackages.erubi@latest",
-    "libgcc@latest",
     "yamllint@latest",
-    "nodejs@latest"
+    "nodejs@latest",
+    "git-lfs@latest"
   ],
-  "env": {
-    "DEVBOX_COREPACK_ENABLED": "true",
-    "VENV_DIR":                ".venv",
-    "PYTHONPATH":              ".:$VENV_DIR/lib/python3.11/site-packages:$PYTHONPATH",
-    "PATH":                    "$VENV_DIR/bin:$DEVBOX_PACKAGES_DIR/bin:$PATH",
-    "LD_LIBRARY_PATH":         "$DEVBOX_PACKAGES_DIR/lib:$LD_LIBRARY_PATH"
-  },
   "shell": {
-    "init_hook": [
-      "pre-commit install -f"
-    ],
-    "scripts": {}
+    "init_hook": ["pre-commit install -f"],
+    "scripts":   {}
   }
 }

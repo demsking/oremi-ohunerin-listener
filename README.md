@@ -27,6 +27,7 @@ communication. It is available as a Docker image for both `linux/amd64` and
   * [General Usage](#general-usage)
   * [Listen Command](#listen-command)
 - [MQTT Topics](#mqtt-topics)
+- [Customizing Detection with `features.json`](#customizing-detection-with-featuresjson)
 - [Home Assistant Integration](#home-assistant-integration)
   * [Example Use Case](#example-use-case)
   * [Home Assistant Configuration](#home-assistant-configuration)
@@ -80,6 +81,8 @@ automation and monitoring.
 
 - **Real-Time Audio Detection**: Detects environmental sounds and wake words in
   real time.
+- **Customizable Detection**: Configure specific wake words and sounds to detect
+  using a `features.json` file.
 - **MQTT Integration**: Publishes detected sounds and wake words to an MQTT
   broker.
 - **Home Assistant Compatibility**: Easily integrates with Home Assistant for
@@ -169,9 +172,10 @@ docker run -it --rm demsking/oremi-ohunerin-listener listen -h
 Output:
 
 ```bash
-usage: oremi-ohunerin-listener listen [-h] [-l LANGUAGE] [-i DEVICE_INDEX] [-d DEVICE] [-t THRESHOLD] [--delay DELAY] [--host HOST]
-                                  [-p PORT] [--cert-file CERT_FILE] --mqtt-broker MQTT_BROKER [--mqtt-port MQTT_PORT]
-                                  [--mqtt-username MQTT_USERNAME] [--mqtt-password MQTT_PASSWORD] [--mqtt-topic MQTT_TOPIC]
+usage: oremi-ohunerin-listener listen [-h] [-l LANGUAGE] [-i DEVICE_INDEX] [-d DEVICE] [-t THRESHOLD] [--delay DELAY]
+                                      [--features-file FEATURES_FILE] [--host HOST] [-p PORT] [--cert-file CERT_FILE] --mqtt-broker
+                                      MQTT_BROKER [--mqtt-port MQTT_PORT] [--mqtt-username MQTT_USERNAME]
+                                      [--mqtt-password MQTT_PASSWORD] [--mqtt-topic MQTT_TOPIC]
 
 options:
   -h, --help            show this help message and exit
@@ -184,6 +188,8 @@ options:
   -t THRESHOLD, --threshold THRESHOLD
                         The minimum confidence score required to process a sound event (default: 0.85).
   --delay DELAY         The cooldown period (in seconds) to wait before sending the same sound event again (default: 3).
+  --features-file FEATURES_FILE
+                        Path to the features.json file.
   --host HOST           Host address to connect to.
   -p PORT, --port PORT  Port number to connect to (default: 5023).
   --cert-file CERT_FILE
@@ -218,6 +224,103 @@ Each message is published as a JSON object with the following structure:
   "date": "2023-10-05T12:34:56Z"
 }
 ```
+
+## Customizing Detection with `features.json`
+
+The `--features-file` argument allows you to specify a JSON file that
+configures the behavior of the **Oremi Ohunerin Listener**. This file defines
+the features for **wake word detection** and **sound detection**, enabling you
+to customize which sounds and wake words the listener should detect.
+
+**Example `features.json` File**
+
+```json
+[
+  {
+    "name": "wakeword-detection",
+    "language": "fr",
+    "wakewords": [
+      { "word": "alexa", "phones": ["aa ll ei kk ss aa"] },
+      { "word": "ok google", "phones": ["oh k eh g uw g ah l"] }
+    ],
+    "discriminants": [
+      { "word": "alex", "phones": ["aa ll ai kk ss"] },
+      { "word": "google", "phones": ["g uw g ah l"] }
+    ]
+  },
+  {
+    "name": "sound-detection",
+    "allowlist": [
+      "Shout",
+      "Bellows",
+      "Children shouting",
+      "Laughter",
+      "Baby laughter",
+      "Crying, sobbing",
+      "Baby cry, infant cry",
+      "Whistling",
+      "Wheeze",
+      "Snoring",
+      "Cough",
+      "Sneeze",
+      "Burping",
+      "Hiccup"
+    ]
+  }
+]
+```
+
+**Key Features**
+
+1. **Wake Word Detection**:
+   - Defines the wake words and their phonetic representations (e.g., `"alexa"`,
+     `"ok google"`).
+   - Includes discriminants to reduce false positives (e.g., distinguishing
+     between `"alexa"` and `"alex"`).
+
+2. **Sound Detection**:
+   - Specifies an `allowlist` of sounds to detect (e.g., `"Baby cry"`,
+     `"Snoring"`, `"Cough"`).
+   - If no `allowlist` is provided, the listener will detect all sounds by
+     default.
+
+**Schema**
+
+The JSON file must adhere to the schema defined in the
+[InitMessage.json](https://gitlab.com/demsking/oremi-ohunerin/-/blob/main/schemas/InitMessage.json)
+schema file. This ensures compatibility with the **Oremi Ohunerin** WebSocket
+server.
+
+**Building a Phonetic Dictionary**
+
+To create custom phonetic representations for wake words, you can refer to the
+[CMU Sphinx tutorial on building a phonetic dictionary](https://cmusphinx.github.io/wiki/tutorialdict).
+This guide provides step-by-step instructions for generating accurate phonetic
+spellings, which are essential for effective wake word detection.
+
+**Usage**
+
+To use the `--features-file` argument, provide the path to your JSON
+configuration file when starting the listener:
+
+```bash
+docker run -it --rm demsking/oremi-ohunerin-listener listen \
+  --features-file /path/to/features.json \
+  --mqtt-broker mqtt.eclipseprojects.io
+```
+
+**Benefits**
+
+- **Customization**: Tailor the listener to detect specific wake words and
+  sounds relevant to your use case.
+- **Efficiency**: Reduce unnecessary processing by limiting detection to only
+  the sounds and wake words you care about.
+- **Integration**: Seamlessly integrate with home automation systems like
+  **Home Assistant** by publishing only relevant events to MQTT.
+
+By using the `--features-file` argument, you can configure the
+**Oremi Ohunerin Listener** to meet your specific needs, making it a powerful
+tool for real-time audio detection and automation.
 
 ## Home Assistant Integration
 

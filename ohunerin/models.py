@@ -1,29 +1,3 @@
-# Copyright 2025 Sébastien Demanou. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ==============================================================================
-from typing import Literal
-from typing import TypedDict
-
-
-DetectedSoundType = Literal['sound', 'wakeword']
-
-
-class DetectedSound(TypedDict):
-  """
-  Example: {"type": "sound", "sound": "snoring", "score": 0.109375, "datetime": "2023-08-16T14:42:46.424809"}
-  """
-  type: DetectedSoundType
-  sound: str
-  score: float
-  date: str
+version https://git-lfs.github.com/spec/v1
+oid sha256:40d16dd86d2ce60ae6124ebdea1de81071d3214df41659270441cf4b3c212018
+size 2628

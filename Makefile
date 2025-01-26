@@ -11,10 +11,10 @@ shell:
 stop:
 	tmux kill-session -t oremi-ohunerin-listener
 
-up: certificates
-	docker compose up -d --remove-orphans detector
+up:
+	docker compose up -d --remove-orphans detector mosquitto
 
-watch: certificates
+watch:
 	docker compose watch listener
 
 config:
@@ -54,17 +54,7 @@ update:
 	devbox update
 	pre-commit autoupdate
 
-$(SSL_CERT_FILE):
-	mkdir -p $(shell dirname $@)
-	openssl req -x509 -nodes -new -sha256 -days 3650 -newkey rsa:2048 \
-	  -subj "/C=CM/CN=localhost" \
-	  -addext "subjectAltName = DNS:localhost" \
-	  -keyout $(SSL_PATH)/localhost-key.pem \
-	  -out $(SSL_CERT_FILE)
-
-certificates: $(SSL_CERT_FILE)
-
-help:
+help: image-test
 	# poetry run oremi-ohunerin-listener -h
 	docker run -it --rm demsking/oremi-ohunerin-listener:test -h
 	docker run -it --rm demsking/oremi-ohunerin-listener:test listen -h

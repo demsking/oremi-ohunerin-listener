@@ -17,7 +17,9 @@
         "--mqtt-port",
         "1883",
         "--threshold",
-        "0.1"
+        "0.1",
+        "--features-file",
+        "features.json"
       ],
       "cwd": "${workspaceFolder}",
       "justMyCode": true

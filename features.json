@@ -1,0 +1,33 @@
+[
+  {
+    "name": "wakeword-detection",
+    "language": "fr",
+    "wakewords": [
+      { "word": "alexa", "phones": ["aa ll ei kk ss aa"] },
+      { "word": "ok google", "phones": ["oh k eh g uw g ah l"] }
+    ],
+    "discriminants": [
+      { "word": "alex", "phones": ["aa ll ai kk ss"] },
+      { "word": "google", "phones": ["g uw g ah l"] }
+    ]
+  },
+  {
+    "name": "sound-detection",
+    "allowlist": [
+      "Shout",
+      "Bellows",
+      "Children shouting",
+      "Laughter",
+      "Baby laughter",
+      "Crying, sobbing",
+      "Baby cry, infant cry",
+      "Whistling",
+      "Wheeze",
+      "Snoring",
+      "Cough",
+      "Sneeze",
+      "Burping",
+      "Hiccup"
+    ]
+  }
+]

@@ -114,6 +114,7 @@ Code, such as in an external terminal.
      [.tmuxinator.yml](.tmuxinator.yml) file for details.
 
 ### Key Notes
+
 - **Dev Containers** are ideal for development within VS Code, providing an
   isolated and consistent environment with preconfigured debug launchers.
 - **Devbox** ensures consistent tooling and dependencies when working in an
