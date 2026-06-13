@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Configurez le préfixe de sujet MQTT pour votre Oremi Ohunerin Listener.",
+        "data": {
+          "topic_prefix": "Préfixe de sujet MQTT"
+        }
+      }
+    },
+    "error": {
+      "mqtt_required": "L'intégration MQTT de Home Assistant doit d'abord être configurée.",
+      "invalid_prefix": "Le préfixe de sujet MQTT ne doit pas être vide.",
+      "unknown": "Erreur inattendue."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "description": "Configurez les paramètres d'Oremi Ohunerin Listener.",
+        "data": {
+          "topic_prefix": "Préfixe de sujet MQTT"
+        }
+      }
+    }
+  }
+}

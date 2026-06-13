@@ -1,0 +1,27 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Configure the MQTT topic prefix for your Oremi Ohunerin Listener.",
+        "data": {
+          "topic_prefix": "MQTT Topic Prefix"
+        }
+      }
+    },
+    "error": {
+      "mqtt_required": "The Home Assistant MQTT integration must be configured first.",
+      "invalid_prefix": "The MQTT topic prefix must not be empty.",
+      "unknown": "Unexpected error."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "description": "Configure Oremi Ohunerin Listener settings.",
+        "data": {
+          "topic_prefix": "MQTT Topic Prefix"
+        }
+      }
+    }
+  }
+}

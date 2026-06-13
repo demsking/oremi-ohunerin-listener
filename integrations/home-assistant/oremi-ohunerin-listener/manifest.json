@@ -1,0 +1,12 @@
+{
+  "domain": "oremi_ohunerin_listener",
+  "name": "Oremi Ohunerin Listener",
+  "codeowners": ["@demsking"],
+  "config_flow": true,
+  "documentation": "https://github.com/demsking/oremi-ohunerin-listener",
+  "integration_type": "helper",
+  "iot_class": "local_push",
+  "dependencies": ["mqtt"],
+  "requirements": [],
+  "version": "2.0.1"
+}
