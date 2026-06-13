@@ -598,7 +598,7 @@ class OhunerinListenerBaseSensor(SensorEntity):
       name="Oremi Ohunerin Listener",
       manufacturer="Sébastien Demanou",
       model="Oremi Ohunerin Listener",
-      sw_version="2.0.1",
+      sw_version="3.0.0b1",
       configuration_url="https://gitlab.com/demsking/oremi-ohunerin-listener",
     )
 
