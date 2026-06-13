@@ -12,13 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
-import json
-from dataclasses import dataclass
-from dataclasses import field
 from typing import Literal
 from typing import TypedDict
-
-from dataclasses_json import dataclass_json
 
 
 DetectedSoundType = Literal['sound', 'wakeword']
@@ -33,65 +28,3 @@ class DetectedSound(TypedDict):
   sound: str
   score: float
   date: str
-
-
-@dataclass_json
-@dataclass
-class Wakeword:
-  word: str
-  phones: list[str]
-
-
-@dataclass_json
-@dataclass
-class Discriminant:
-  word: str
-  phones: list[str]
-
-
-@dataclass_json
-@dataclass
-class WakewordDetectionFeature:
-  name: Literal['wakeword-detection'] = 'wakeword-detection'
-  language: Literal['fr', 'en'] = 'fr'
-  wakewords: list[Wakeword] = field(default_factory=list)
-  discriminants: list[Discriminant] = field(default_factory=list)
-
-
-@dataclass_json
-@dataclass
-class SoundDetectionFeature:
-  name: Literal['sound-detection'] = 'sound-detection'
-  allowlist: list[str] = field(default_factory=list)
-
-
-@dataclass_json
-@dataclass
-class ClientInitMessage:
-  type: Literal['init']
-  features: list[WakewordDetectionFeature | SoundDetectionFeature]
-
-  @classmethod
-  def from_file(cls, features_file: str):
-    features = []
-
-    with open(features_file, 'r', encoding='utf-8') as file:
-      data = json.load(file)
-
-    if isinstance(data, list):
-      for feature_data in data:
-        if feature_data['name'] == 'wakeword-detection':
-          features.append(WakewordDetectionFeature.from_dict(feature_data))
-        elif feature_data['name'] == 'sound-detection':
-          features.append(SoundDetectionFeature.from_dict(feature_data))
-    else:
-      raise ValueError('Invalid features file format: expected an array')
-
-    return cls(type='init', features=features)
-
-
-class ServerInitMessage(TypedDict):
-  type: Literal['init']
-  server: str
-  status: str
-  languages: list[str]

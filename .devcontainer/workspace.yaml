@@ -11,4 +11,16 @@ services:
     volumes:
       - .:/workspaces:cached
     command: sleep infinity
+
+  detector:
+    image: demsking/oremi-ohunerin
+    ports:
+      - 45023:5023
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    ports:
+      - 41883:1883
+    volumes:
+      - ../mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
 ...

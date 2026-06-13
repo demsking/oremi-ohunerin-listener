@@ -2,7 +2,30 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Listener",
+      "name": "Local Listener",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "ohunerin",
+      "args": [
+        "listen",
+        "--host",
+        "localhost",
+        "--port",
+        "45023",
+        "--mqtt-broker",
+        "localhost",
+        "--mqtt-port",
+        "41883",
+        "--threshold",
+        "0.1",
+        "--features-file",
+        "features.json"
+      ],
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    },
+    {
+      "name": "Container Listener",
       "type": "debugpy",
       "request": "launch",
       "module": "ohunerin",
