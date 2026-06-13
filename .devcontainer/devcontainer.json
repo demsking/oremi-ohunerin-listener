@@ -1,16 +1,22 @@
 {
   "name": "Oremi Ohunerin Listener",
-  "dockerComposeFile": ["../compose.yaml", "workspace.yaml"],
+  "dockerComposeFile": [
+    "../compose.yaml",
+    "workspace.yaml"
+  ],
   "service": "devcontainer",
   "workspaceFolder": "/workspaces",
-  "runServices": ["detector", "mosquitto"],
+  "runServices": [
+    "detector",
+    "mosquitto"
+  ],
   "shutdownAction": "stopCompose",
   "mounts": [
     "source=/dev/snd,target=/dev/snd,type=bind,consistency=cached",
     "source=${localEnv:XDG_RUNTIME_DIR}/pulse/native,target=/var/config/pulse/native,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.config/pulse/cookie,target=/var/config/pulse/cookie,type=bind,consistency=cached"
   ],
-  "postCreateCommand": "poetry install",
+  "postCreateCommand": "make install",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -26,8 +32,8 @@
           "**/.devbox": true,
           "**/.venv": true
         },
-        "python.defaultInterpreterPath": "$POETRY_HOME/venv/bin/python",
-        "python.pythonPath": "$POETRY_HOME/venv/bin/python",
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
         "python.terminal.activateEnvInCurrentTerminal": true,
         "pylint.importStrategy": "fromEnvironment",
         "editor.formatOnPaste": false,

@@ -3,6 +3,9 @@ target-version = "py311"
 indent-width = 2
 line-length = 128
 
+[format]
+quote-style = "double"
+
 [lint]
 ignore = [
   "E501",   # ignore line too long
@@ -15,4 +18,4 @@ select = ["E", "F", "W", "RUF"]
 
 [lint.flake8-quotes]
 docstring-quotes = "double"
-inline-quotes = "single"
+inline-quotes = "double"

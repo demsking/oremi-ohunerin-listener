@@ -2,6 +2,8 @@ APP_NAME := $(shell python metadata.py name)
 APP_VERSION := $(shell python metadata.py version)
 IMAGE_NAME := demsking/$(APP_NAME)
 
+COMPOSE_SERVICES := detector mosquitto
+
 .PHONY: all clean build dist
 
 # Start the development environment using tmuxinator
@@ -11,51 +13,45 @@ shell:
 stop:
 	tmux kill-session -t oremi-ohunerin-listener
 
-up:
-	docker compose up -d --remove-orphans detector mosquitto
-
-watch:
-	docker compose watch listener
-
-config:
-	docker compose config
-
-stats:
-	docker compose stats
-
-ps:
-	docker compose ps
-
-restart:
-	docker compose restart
-
-down:
-	docker compose down
-
-exec:
-	docker compose exec detector bash
+up: pull
+	docker compose -f .devcontainer/workspace.yaml up -d $(COMPOSE_SERVICES) --remove-orphans
 
 logs:
-	docker compose logs -f
+	docker compose -f .devcontainer/workspace.yaml logs -f
+
+pull:
+	docker compose -f .devcontainer/workspace.yaml pull $(COMPOSE_SERVICES)
+
+restart:
+	docker compose -f .devcontainer/workspace.yaml restart $(COMPOSE_SERVICES)
+
+down:
+	docker compose -f .devcontainer/workspace.yaml down $(COMPOSE_SERVICES)
+
+stats:
+	docker compose -f .devcontainer/workspace.yaml stats
+
+exec:
+	docker compose -f .devcontainer/workspace.yaml exec detector bash
 
 clean:
 	rm -rf dist/ build/
 
 install:
-	poetry install
+	uv sync
 
-# Show outdated dependencies using poetry
+# Show outdated dependencies using uv
 outdated:
-	poetry show --outdated
+	uv pip list --outdated
 
 # Update dev env
 update:
-	poetry update
+	uv lock --upgrade
 	devbox update
 	pre-commit autoupdate
 
 help: image-test
-	# poetry run oremi-ohunerin-listener -h
+	# uv run oremi-ohunerin-listener -h
 	docker run -it --rm demsking/oremi-ohunerin-listener:test -h
 	docker run -it --rm demsking/oremi-ohunerin-listener:test listen -h
 
@@ -75,16 +71,16 @@ coverage-html:
 	pytest --cov=ohunerin --cov-report=html
 
 outdated:
-	poetry show --outdated
+	uv pip list --outdated
 
 update:
-	poetry update
+	uv lock --upgrade
 	devbox update
 	pre-commit autoupdate
 
 package:
 	rm -rf dist/*
-	poetry build --no-cache --format=wheel
+	uv build --wheel
 	twine check dist/*
 
 pypi: package
@@ -123,6 +119,4 @@ image-test:
 	  --tag $(IMAGE_NAME):test
 
 publish: image pypi
-	git commit pyproject.toml -m "Release $(APP_VERSION)"
-	git tag v$(APP_VERSION)
 	git push --tags origin main
